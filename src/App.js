@@ -4,6 +4,18 @@ import "./App.css";
 import Explanation from "./components/Explanation";
 import NasaImage from "./components/NasaImage";
 import Title from "./components/Title";
+import styled from 'styled-components'
+
+const StyledDiv = styled.div`
+  width: 100%;
+  margin: auto;
+  font-family: montserrat;
+  background: #DC2424;
+  background: -webkit-linear-gradient(to right, #4A569D, #DC2424);  
+  background: linear-gradient(to right, #4A569D, #DC2424);
+
+
+`;
 
 function App() {
   const [nasaData, setNasaData] = useState([]);
@@ -20,11 +32,11 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
+    <StyledDiv className="App">
       <Title title={nasaData.title} date={nasaData.date}/>
-      <NasaImage image={nasaData.url} />
+      <NasaImage image={nasaData.url} mediaType={nasaData.media_type}/>
       <Explanation explanation={nasaData.explanation} copyright={nasaData.copyright}/>
-    </div>
+    </StyledDiv>
   );
 }
 
